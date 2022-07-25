@@ -9,3 +9,11 @@ def search(token: str):
         return token
     else:
         return ret
+
+def getAnyToken():
+    ret = db.token.find()
+    token = None
+    for tok in ret:
+        token = tok
+    token = Token(_id=token["_id"],token=token["token"])
+    return token
