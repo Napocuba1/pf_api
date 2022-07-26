@@ -18,5 +18,5 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 
 app.include_router(user.router, prefix="/user", tags=["User"])
-app.include_router(sync.router, prefix="/fisico", tags=["Dispositivo Fisico"])
+app.include_router(sync.router, prefix="/fisico", tags=["Sincronizacion Dispositivo Fisico"])
 app.include_router(actions.router, prefix="/remote", tags=["Dispositivo Fisico"])
