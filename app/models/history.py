@@ -45,3 +45,10 @@ class AireHistory(BaseModel):
     aire_ideal: Optional[float]
     aire_actual: Optional[float]
     sync: Optional[bool]
+
+class SensoresDataHistory(BaseModel):
+    temperatura: Optional[TemperaturaHistory] = None
+    riego: Optional[RiegoHistory] = None
+    luz: Optional[LuzHistory] = None
+    ph: Optional[PhHistory] = None
+    aire: Optional[AireHistory] = None

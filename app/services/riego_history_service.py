@@ -8,3 +8,15 @@ def createRiegoHistory(temp: List[RiegoHistory]):
         riegoDict.append(t.dict())
     ret = db.history_riego.insert_many(riegoDict)
     return ret
+
+
+def getRiegoHistoryLast():
+    temp = db.history_riego.aggregate([
+            { "$sort" : { "date_action" : -1 } },
+            { "$limit" : 1 }
+            ])
+    last = dict()
+    for t in temp:
+        last = t
+    last  = RiegoHistory(**last)
+    return last
